@@ -18,6 +18,10 @@ public class DataPool {
 
 	HashSet<Node> viewedNodes;
 
+	/**
+	 * 
+	 * @param initialList :- to be loaded from server/DB
+	 */
 	DataPool(LinkedList<Node> initialList) {
 		this.initialList = initialList;
 		this.viewedNodes = new HashSet<>();
@@ -55,5 +59,13 @@ public class DataPool {
 		return list;
 
 	}
+	
+	boolean isDataAvailable() {
+		return initialList.size() != 0;
+	}
+	
+	
+	
+	
 
 }
