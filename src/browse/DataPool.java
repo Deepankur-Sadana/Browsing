@@ -48,24 +48,27 @@ public class DataPool {
 
 	/**
 	 * 
-	 * @param count
+	 * @param count       maximum count of nodes in case there are no auto suggested
+	 *                    nodes available
+	 * @param openingFrom
 	 * @return nodes in the range of {0 to count} if available
 	 */
-	List<Node> getNodesToSee(int count) {
-		LinkedList<Node> list = new LinkedList<>();
-		while (list.size() < count && initialList.size() > 0) {
-			list.add(initialList.pollFirst());
+	List<Node> getNodesToSee(int count, Node openingFrom) {
+		LinkedList<Node> suggestions = new LinkedList<>();
+
+		if (openingFrom != null && openingFrom.getSuggestions() != null) {
+			suggestions.addAll(openingFrom.getSuggestions());
 		}
-		return list;
+
+		while (suggestions.size() < count && initialList.size() > 0) {
+			suggestions.add(initialList.pollFirst());
+		}
+		return suggestions;
 
 	}
-	
+
 	boolean isDataAvailable() {
 		return initialList.size() != 0;
 	}
-	
-	
-	
-	
 
 }
