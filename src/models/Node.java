@@ -8,3 +8,6 @@ public class Node {
 	ArrayList<Node> suggestions;
 
 }
+
+
+
