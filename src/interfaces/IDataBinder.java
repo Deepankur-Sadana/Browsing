@@ -8,7 +8,7 @@ public interface IDataBinder {
 
 	boolean isDataAvailable();
 
-	List<Node> loadMoreData(int count);
+	List<Node> loadMoreData(int count,Node openingFrom);
 
 	void notifyDataSeen(Node seenNode);
 

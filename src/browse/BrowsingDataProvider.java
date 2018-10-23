@@ -21,8 +21,8 @@ public class BrowsingDataProvider implements IDataBinder {
 	}
 
 	@Override
-	public List<Node> loadMoreData(int count) {
-		return dataPool.getNodesToSee(count);
+	public List<Node> loadMoreData(int count,Node openingFrom) {
+		return dataPool.getNodesToSee(count,openingFrom);
 	}
 
 	@Override
